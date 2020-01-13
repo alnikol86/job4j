@@ -7,7 +7,7 @@ public class SqArea {
         // p / 2 = L+h и L = h * k
         // p / 2 = h *k + h
         // p / 2 = (k + 1) * h;
-        h = (p / 2) / (k + 1);
+        h = p / (2 * (k + 1));
         L = h * k;
         s = L * h;
         return s;
