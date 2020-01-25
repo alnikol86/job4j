@@ -21,4 +21,20 @@ public class MatrixCheck {
         }
         return result;
     }
+
+    /**
+     * Class cheks one vertical line to the same elements
+     * @param board input array
+     * @param column this number is a vertical column in the array
+     * @return boolean result, the same or not
+     */
+    public static boolean monoVertical(char[][] board, int column) {
+        boolean result = true;
+        for (int i = 0; i < board.length; i++) {
+            if (board[i][column] != 'X') {
+                result = false;
+            }
+        }
+        return result;
+    }
 }
