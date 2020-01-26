@@ -29,7 +29,7 @@ public class Converter {
 
         int usToRu = dollarToRuble(2);
         int expectedUsToRu = 120;
-        boolean passedUTR = usToRu ==expectedUsToRu;
+        boolean passedUTR = usToRu == expectedUsToRu;
 
         System.out.println("140 rubles = " + euros + " euros. Test result = " + passedE);
         System.out.println("120 rubles = " + dollars + " dollars. Test result = " + passedD);

@@ -6,7 +6,7 @@ public class Fitness {
         while (ivan < nik) {
             month++;
             ivan *= 3;
-            nik *=2;
+            nik *= 2;
         }
         return month;
     }

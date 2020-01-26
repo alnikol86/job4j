@@ -6,7 +6,7 @@ import static org.junit.Assert.assertThat;
 
 public class FindLoopTest {
     @Test
-    public void WhenArrsyHas5Then0() {
+    public void whenArrsyHas5Then0() {
         FindLoop find = new FindLoop();
         int[] input = new int[] {5, 10, 3};
         int value = 5;
