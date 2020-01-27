@@ -44,12 +44,18 @@ public class MatrixCheck {
         }
         return rsl;
     }
+
+    /**
+     *Class checks win combination
+     * @param board input 2D array
+     * @return boolean result, there is or there isn't win combination
+     */
     public static boolean isWin(char[][] board) {
         boolean result = false;
         for (int i = 0; i < board.length; i++) {
             if (board[i][i] == 'X'
                     &&
-                    monoHorizontal(board, i) || monoVertical(board, i)) {
+                    (monoHorizontal(board, i) || monoVertical(board, i))) {
                 result = true;
                 break;
             }
