@@ -4,7 +4,7 @@ import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-public class DefragmentTest {
+public class  DefragmentTest {
     @Test
     public void notFirstNull() {
         String[] input = {"I", null, "wanna", null, "be", null, "compressed"};
