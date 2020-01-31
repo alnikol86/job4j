@@ -1,13 +1,14 @@
 package ru.job4j.array;
 
 /**
+ * Class does sort array at a minimum number to a maximum number
  * @author Alexander Nikolaev
  * @since January 24, 2020
  * @version 1.0
  */
 public class SortSelected {
     /**
-     * Class sorts an array from MIN to MAX an element
+     * Method sorts an array from MIN to MAX an element
      * @param data input array
      * @return sorted array
      */

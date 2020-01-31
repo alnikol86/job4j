@@ -1,13 +1,14 @@
 package ru.job4j.array;
 
 /**
+ * Class find the elements in an array
  * @author Alexander Nikolaev
  * @since January 23, 2020
  * @version 1.0
  */
 public class Min {
     /**
-     * Class does find a min element in an array
+     * Method does find a min element in an array
      * @param array input array
      * @return min element
      */

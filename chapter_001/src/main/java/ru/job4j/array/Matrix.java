@@ -1,13 +1,14 @@
 package ru.job4j.array;
 
 /**
+ * Class for create multiplication table
  * @author Alexander Nikolaev
  * @since January 25, 2020
  * @version 1.0
  */
 public class Matrix {
     /**
-     * Class creates a multiplication table
+     * Method creates a multiplication table
      * @param size to set size a 2D array
      * @return a multiplication table
      */

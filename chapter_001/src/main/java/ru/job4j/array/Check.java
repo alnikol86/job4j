@@ -8,7 +8,7 @@ package ru.job4j.array;
  */
 public class Check {
     /**
-     * it checks true or false all elements in an array
+     * Method checks true or false all elements in an array
      * @param data input array
      * @return true or false all elements
      */

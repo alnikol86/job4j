@@ -1,13 +1,14 @@
 package ru.job4j.array;
 
 /**
+ * Class check an 2D array an elements in a cells
  * @author Alexander Nikolaev
  * @since January 26, 2020
  * @version 1.0
  */
 public class MatrixCheck {
     /**
-     * Class cheks one horizontal line to the same elements
+     * Method cheks one horizontal line to the same elements
      * @param board input array
      * @param row this number is a horizontal line in the array
      * @return boolean result, the same or not
@@ -23,7 +24,7 @@ public class MatrixCheck {
     }
 
     /**
-     * Class cheks one vertical line to the same elements
+     * Method cheks one vertical line to the same elements
      * @param board input array
      * @param column this number is a vertical column in the array
      * @return boolean result, the same or not
@@ -46,7 +47,7 @@ public class MatrixCheck {
     }
 
     /**
-     *Class checks win combination
+     *Method checks win combination
      * @param board input 2D array
      * @return boolean result, there is or there isn't win combination
      */
