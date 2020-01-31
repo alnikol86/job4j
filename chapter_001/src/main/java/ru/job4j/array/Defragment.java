@@ -6,7 +6,7 @@ public class Defragment {
             if (array[index] == null) {
                 String nullData = array[index];
                 int tempNull = index;
-                while(array[index] == null && index < array.length - 1) {
+                while (array[index] == null && index < array.length - 1) {
                     index++;
                 }
                 String data = array[index];
