@@ -6,3 +6,4 @@ I will finish it in July 2020.
 
 In the course I worked with branches in Git
 В курсе производилась работа с веткамы git.
+New branch created by IDEA
