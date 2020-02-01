@@ -5,3 +5,4 @@ I will finish it in July 2020.
 "Объединение зафиксированх изменений"
 
 In the course I worked with branches in Git
+В курсе производилась работа с веткамы git.
