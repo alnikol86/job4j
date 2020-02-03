@@ -3,12 +3,12 @@ package ru.job4j.oop;
 public class Jukebox {
     public void music(int position) {
         if (position == 1) {
-            System.out.println("Пусть бегут неуклюже,\n" +
-                    "К сожалению, день рожденья\n" +
-                    "Только раз в году.");
+            System.out.println("Пусть бегут неуклюже,\n"
+                    + "К сожалению, день рожденья\n"
+                    + "Только раз в году.");
         } else if (position == 2) {
-            System.out.println("Спят усталые игрушки,\n" +
-                    "Баю – бай…");
+            System.out.println("Спят усталые игрушки,\n"
+                    + "Баю – бай…");
         } else {
             System.out.println("Песня не найдена");
         }
