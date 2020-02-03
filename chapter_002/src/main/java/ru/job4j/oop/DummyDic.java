@@ -6,7 +6,7 @@ public class DummyDic {
     }
     public static void main(String[] args) {
         DummyDic dictionary = new DummyDic();
-        dictionary.engToRus("hello");
-        System.out.println("Неизвестное слово. " + dictionary);
+        String eng = dictionary.engToRus("Hello");
+        System.out.println("Неизвестное слово. " + eng);
     }
 }
