@@ -8,7 +8,7 @@ public class PointTest {
     public void distance() {
         Point one = new Point(1, 3);
         Point two = new Point(2, 2);
-        double expected = 1.4142135623730951;
+        double expected = 1.41;
         double out = one.distance(two);
         Assert.assertEquals(expected, out, 0.01);
     }
