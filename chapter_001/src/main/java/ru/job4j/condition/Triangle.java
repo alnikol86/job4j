@@ -11,22 +11,25 @@ public class Triangle {
         this.third = cp;
     }
 
+    public double period(double a, double b, double c) {
+        double p = (a + b + c) / 2;
+        return p;
+    }
+
     public double area() {
         double rsl = -1;
         double a = first.distance(second);
         double b = first.distance(third);
         double c = second.distance(third);
-        double p = 0; // to do
+        double p = period(a, b, c);
         if (this.exist(a, b, c)) {
-            //square triangle
-            rsl = -1;
+            rsl = Math.sqrt((p * (p - a) * (p - b) * (p - c)));
         }
         return rsl;
     }
 
-
-    public static boolean exist(double ab, double ac, double bc) {
-        boolean condition = ab + ac > bc && ab + bc > ac && ac + bc > ab;
+    public static boolean exist(double a, double c, double b) {
+        boolean condition = a + c > b && a + b > c && c + b > a;
         return condition;
     }
 }
