@@ -6,4 +6,8 @@ public class Engineer extends Profession {
     public String getSpecialty() {
         return specialty;
     }
+
+    public void makeCode() {
+
+    }
 }

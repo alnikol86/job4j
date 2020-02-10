@@ -6,4 +6,12 @@ public class Doctor extends Profession {
     public String getSpecialty() {
         return specialty;
     }
+
+    public void diagnose() {
+
+    }
+
+    public void heal() {
+
+    }
 }
