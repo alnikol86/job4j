@@ -18,7 +18,7 @@ public class Tracker {
         return item;
     }
 
-    public Item[] findAll() {
+    public Item[] findAll(Item[] items) {
         Item[] itemsWithoutNull = new Item[this.items.length];
         for (int i = 0; i < this.items.length; i++) {
             Item names = items[i];
