@@ -20,11 +20,10 @@ public class Tracker {
 
     public Item[] findAll() {
         Item[] itemsWithoutNull = new Item[this.items.length];
-        for (int i = 0; i < this.items.length; i++) {
+        for (int i = 0; i < this.position; i++) {
             Item names = items[i];
             if (names != null) {
-                itemsWithoutNull[this.position] = names;
-                this.position++;
+                itemsWithoutNull[i] = names;
             }
         }
         itemsWithoutNull = Arrays.copyOf(itemsWithoutNull, this.position);
@@ -36,8 +35,7 @@ public class Tracker {
         for (int i = 0; i < this.items.length; i++) {
             Item names = items[i];
             if (names.getName().equals(key)) {
-                sameName[this.position] = names;
-                this.position++;
+                sameName[i] = names;
                 }
             }
         sameName = Arrays.copyOf(sameName, this.position);

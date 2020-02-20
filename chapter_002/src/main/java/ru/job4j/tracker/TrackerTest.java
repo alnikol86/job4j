@@ -37,4 +37,26 @@ public class TrackerTest {
         Item[] expected = {item1, item3};
         assertThat(result, is(expected));
     }
+    @Test
+    public void checkSameNameInArray() {
+        Tracker tracker = new Tracker();
+        Item item = new Item();
+        item.setName("test3");
+        tracker.add(item);
+        Item item1 = new Item();
+        item1.setName("test1");
+        tracker.add(item1);
+        Item item2 = new Item();
+        item2.setName("test3");
+        tracker.add(item2);
+        Item item3 = new Item();
+        item3.setName("test3");
+        tracker.add(item3);
+        Item item4 = new Item();
+        item4.setName("test1");
+        tracker.add(item4);
+        Item[] result = tracker.findByName("test3");
+        String[] expected = {"test3", "test3", "test3"};
+        assertThat(result, is(expected));
+    }
 }
