@@ -56,7 +56,7 @@ public class TrackerTest {
         item4.setName("test1");
         tracker.add(item4);
         Item[] result = tracker.findByName("test3");
-        String[] expected = {"test3", "test3", "test3"};
+        Item[] expected = {"test3", "test3", "test3"};
         assertThat(result, is(expected));
     }
 }
