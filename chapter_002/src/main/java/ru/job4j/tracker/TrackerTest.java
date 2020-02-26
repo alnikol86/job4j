@@ -8,55 +8,38 @@ public class TrackerTest {
     @Test
     public void whenAddNewItemThenTrackerHasSameItem() {
         Tracker tracker = new Tracker();
-        Item item = new Item();
-        item.setName("test1");
+        Item item = new Item("test1");
         tracker.add(item);
         Item result = tracker.findById(item.getId());
         assertThat(result.getName(), is(item.getName()));
     }
+
     @Test
     public void whenArrayWithNullDeleteItCell() {
         Tracker tracker = new Tracker();
-        Item item = new Item();
-        item.setName(null);
-        tracker.add(item);
-        Item item1 = new Item();
-        item1.setName("test1");
+        Item item1 = new Item("test1");
         tracker.add(item1);
-        Item item2 = new Item();
-        item2.setName(null);
-        tracker.add(item2);
-        Item item3 = new Item();
-        item3.setName("test3");
+        Item item3 = new Item("test3");
         tracker.add(item3);
-        Item item4 = new Item();
-        item4.setName(null);
-        tracker.add(item4);
-
         Item[] result = tracker.findAll();
         Item[] expected = {item1, item3};
         assertThat(result, is(expected));
     }
+
     @Test
     public void checkSameNameInArray() {
         Tracker tracker = new Tracker();
-        Item item = new Item();
-        item.setName("test3");
+        Item item = new Item("test3");
         tracker.add(item);
-        Item item1 = new Item();
-        item1.setName("test1");
+        Item item1 = new Item("test1");
         tracker.add(item1);
-        Item item2 = new Item();
-        item2.setName("test3");
+        Item item2 = new Item("test3");
         tracker.add(item2);
-        Item item3 = new Item();
-        item3.setName("test3");
+        Item item3 = new Item("test3");
         tracker.add(item3);
-        Item item4 = new Item();
-        item4.setName("test1");
+        Item item4 = new Item("test1");
         tracker.add(item4);
         Item[] result = tracker.findByName("test3");
-        Item[] expected = {"test3", "test3", "test3"};
-        assertThat(result, is(expected));
+        assertThat(result, is(item.getName()));
     }
 }
