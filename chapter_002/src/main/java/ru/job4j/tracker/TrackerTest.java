@@ -40,6 +40,7 @@ public class TrackerTest {
         Item item4 = new Item("test1");
         tracker.add(item4);
         Item[] result = tracker.findByName("test3");
-        assertThat(result, is(item.getName()));
+        Item[] expected = {item, item1, item2};
+        assertThat(result, is(expected));
     }
 }
