@@ -22,27 +22,27 @@ public class Tracker {
         return Arrays.copyOf(items, position);
         }
 
-    public Item[] findByName(String key) {
-        Arrays.copyOf(items, position);
-        for (int i = 0; i < items.length; i++) {
+    public Item findByName(String key) {
+        Item item = null;
+        for (int i = 0; i < position; i++) {
             Item index = items[i];
-            int size = 0;
             if (index.getName().equals(key)) {
-                index = items[size];
-                size++;
+                item = index;
+                break;
             }
-            return Arrays.copyOf(items, size);
         }
-        return items;
+        return item;
         }
 
     public Item findById(String id) {
-        for (int i = 0; i < items.length; i++) {
+        Item item = null;
+        for (int i = 0; i < position; i++) {
             Item index = items[i];
             if (index.getId().equals(id)) {
-                return index;
+                item = index;
+                break;
             }
         }
-        return null;
+        return item;
     }
 }
