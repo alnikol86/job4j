@@ -60,4 +60,19 @@ public class Tracker {
         }
         return rsl;
     }
+
+    public boolean delete(String id) {
+        boolean rsl = false;
+        if (findById(id) != null) {
+           int index = indexOf(id);
+           int startPos = index + 1;
+           int distPos = index;
+           int size = position - index;
+           System.arraycopy(items, startPos, items, distPos, size);
+           items[position - 1] = null;
+           position--;
+           rsl = true;
+        }
+        return rsl;
+    }
 }
