@@ -22,16 +22,17 @@ public class Tracker {
         return Arrays.copyOf(items, position);
         }
 
-    public Item findByName(String key) {
-        Item item = null;
+    public Item[] findByName(String key) {
+        Item[] array = null;
+        int size = 0;
         for (int i = 0; i < position; i++) {
-            Item index = items[i];
-            if (index.getName().equals(key)) {
-                item = index;
-                break;
+            if (items[i].getName().equals(key)) {
+                items[size] = items[i];
+                size++;
             }
+            array = Arrays.copyOf(items, size);
         }
-        return item;
+        return array;
         }
 
     public Item findById(String id) {
@@ -52,10 +53,10 @@ public class Tracker {
 
     public boolean replace(String id, Item item) {
         boolean rsl = false;
-        if (findById(id) != null) {
-        int cellForReplace = indexOf(id);
+        Item index = findById(id);
+        if (index != null) {
         item.setId(id);
-        items[cellForReplace] = item;
+        item = index;
         rsl = true;
         }
         return rsl;
@@ -63,15 +64,15 @@ public class Tracker {
 
     public boolean delete(String id) {
         boolean rsl = false;
-        if (findById(id) != null) {
-           int index = indexOf(id);
-           int startPos = index + 1;
-           int distPos = index;
-           int size = position - index;
-           System.arraycopy(items, startPos, items, distPos, size);
-           items[position - 1] = null;
-           position--;
-           rsl = true;
+        int index = indexOf(id);
+        if (index != -1) {
+            int startPos = index + 1;
+            int distPos = index;
+            int size = position - index;
+            System.arraycopy(items, startPos, items, distPos, size);
+            items[position - 1] = null;
+            position--;
+            rsl = true;
         }
         return rsl;
     }

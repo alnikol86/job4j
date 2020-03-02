@@ -34,14 +34,15 @@ public class TrackerTest {
         tracker.add(item);
         Item item1 = new Item("test1");
         tracker.add(item1);
-        Item item2 = new Item("test2");
+        Item item2 = new Item("test3");
         tracker.add(item2);
-        Item item3 = new Item("test3");
+        Item item3 = new Item("test1");
         tracker.add(item3);
         Item item4 = new Item("test4");
         tracker.add(item4);
-        Item result = tracker.findByName("test3");
-        assertThat(result.getName(), is(item3.getName()));
+        Item[] result = tracker.findByName("test3");
+        Item[] expected = {item2};
+        assertThat(result, is(expected));
     }
     @Test
     public void whenReplace() {
