@@ -18,7 +18,7 @@ public class Matches {
                 count = count - value;
                 System.out.println(count);
             }
-            if (count == 0) {
+            if (count <= 0) {
                 System.out.println("Player1 is WIN!!! "
                         + System.lineSeparator() + "The game finished!");
                 run = false;
@@ -34,7 +34,7 @@ public class Matches {
                 count = count - value;
                 System.out.println(count);
             }
-            if (count == 0) {
+            if (count <= 0) {
                 System.out.println("Player2 is WIN!!!"
                 + System.lineSeparator() + "The game finished!");
                 run = false;
