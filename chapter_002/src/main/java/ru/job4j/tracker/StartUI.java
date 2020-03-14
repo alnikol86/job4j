@@ -16,7 +16,7 @@ public class StartUI {
     }
 
     public void init(Scanner scanner, Tracker tracker) {
-        boolean run = false;
+        boolean run = true;
         while (run) {
             this.showMenu();
             int select = Integer.valueOf(scanner.nextLine());
@@ -54,7 +54,7 @@ public class StartUI {
                 tracker.findByName(name);
             } else if (select == 6) {
                 System.out.println("Exit out of the program.");
-                run = true;
+                run = false;
             }
         }
     }

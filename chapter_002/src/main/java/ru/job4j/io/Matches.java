@@ -7,7 +7,7 @@ public class Matches {
         Scanner input = new Scanner(System.in);
         System.out.println(player + " start the game!");
         int value = Integer.valueOf(input.nextLine());
-        while (value < 0 | value > 3) {
+        while (value < 0 || value > 3) {
             System.out.println("You must inter number 1, 2, or 3");
             value = Integer.valueOf(input.nextLine());
         }
