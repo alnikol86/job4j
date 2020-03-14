@@ -16,7 +16,6 @@ public class Matches {
 
     public static int counterDecrement(int counter, int input) {
         counter = counter - input;
-        System.out.println(counter);
         return counter;
     }
 
@@ -26,26 +25,29 @@ public class Matches {
         return false;
     }
 
+    public static void game(int counter, String player) {
+        if (counter != 0) {
+            System.out.println(counter);
+        }
+        if (counter <= 0) {
+            System.out.println(player + " is WIN!!! "
+                    + System.lineSeparator() + "The game finished!");
+            boolean run = false;
+        }
+    }
 
-    public static void main(String[] args) {
+
+
+    public static void main(String[]args) {
         String player1 = "Player1";
         String player2 = "Player2";
         int count = 11;
         boolean run = true;
         while (run) {
-            if (count != 0) {
-                count = counterDecrement(count, input(player1));
-                if (count <= 0) {
-                    run = win(player1);
-                    break;
-                }
-            }
-            if (count != 0) {
-                count = counterDecrement(count, input(player2));
-                if (count <= 0) {
-                    run = win(player2);
-                }
-            }
+            int counter = counterDecrement(count, input(player1));
+            game(counter, player1);
+            counter = counterDecrement(counter, input(player2));
+            game(counter, player2);
         }
     }
 }
