@@ -14,8 +14,12 @@ public class Matches {
         return value;
     }
 
-    public static int counterDecrement(int counter, int input) {
+    public static int counterDecrement(int counter, int input, String player) {
         counter = counter - input;
+        if (counter <= 0) {
+            System.out.println(player + " is WIN!!! "
+                    + System.lineSeparator() + "The game finished!");
+        }
         return counter;
     }
 
@@ -23,28 +27,17 @@ public class Matches {
         if (counter != 0) {
             System.out.println(counter);
         }
-        if (counter <= 0) {
-            System.out.println(player + " is WIN!!! "
-                    + System.lineSeparator() + "The game finished!");
-        }
     }
 
     public static void main(String[]args) {
         String player1 = "Player1";
         String player2 = "Player2";
+        int playerNumber = 0;
         int count = 11;
-        boolean run = true;
-        while (run) {
-            count = counterDecrement(count, input(player1));
-            game(count, player1);
-            if (count <= 0) {
-                break;
-            }
-            count = counterDecrement(count, input(player2));
-            game(count, player2);
-            if (count <= 0) {
-                break;
-            }
+        while (count > 0) {
+            String currentPlayer = ++playerNumber % 2 == 1 ? player1 : player2;
+            game(count, currentPlayer);
+            count = counterDecrement(count, input(currentPlayer), currentPlayer);
         }
     }
 }
