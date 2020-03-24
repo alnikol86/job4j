@@ -39,12 +39,14 @@ public class StartUI {
                 System.out.println("Enter a new item name: ");
                 String name = scanner.nextLine();
                 Item item = new Item(name);
-                tracker.replace(id, item);
+                String result = tracker.replace(id, item) ? "The operation was successful" : "The operation wasn't successful. Check ID for the item.";
+                System.out.println(result);
             } else if (select == 3) {
                 System.out.println("==== Delete item ====");
                 System.out.print("Enter Item id: ");
                 String id = scanner.nextLine();
-                tracker.delete(id);
+                String result = tracker.delete(id) ? "The Item was deleted." : "The Item was not deleted. Check ID for the Item.";
+                System.out.println(result);
             } else if (select == 4) {
                 System.out.println("==== Find item by id ====");
                 System.out.print("Enter Item id: ");
@@ -54,7 +56,10 @@ public class StartUI {
                 System.out.println("==== Find items by name ====");
                 System.out.print("Enter Item name: ");
                 String name = scanner.nextLine();
-                System.out.println(tracker.findByName(name));
+                for (int i = 0; i < tracker.findByName(name).length; ++i) {
+                    System.out.println("Name: " + tracker.findByName(name)[i].getName() + ", ID: "
+                    + tracker.findByName(name)[i].getId());
+                }
             } else if (select == 6) {
                 System.out.println("Exit out of the program.");
                 run = false;
