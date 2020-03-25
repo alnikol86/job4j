@@ -28,9 +28,10 @@ public class StartUI {
                 tracker.add(item);
             } else if (select == 1) {
                 System.out.println("==== Tracker has contained ====");
-                for (int i = 0; i < tracker.findAll().length; ++i) {
-                    System.out.println("Name: " + tracker.findAll()[i].getName()
-                    + ", ID: " + tracker.findAll()[i].getId());
+                Item[] items = tracker.findAll();
+                for (int i = 0; i < items.length; ++i) {
+                    System.out.println("Name: " + items[i].getName()
+                    + ", ID: " + items[i].getId());
                 }
             } else if (select == 2) {
                 System.out.println("==== Edit item ====");
@@ -51,14 +52,17 @@ public class StartUI {
                 System.out.println("==== Find item by id ====");
                 System.out.print("Enter Item id: ");
                 String id = scanner.nextLine();
-                System.out.println("Name: " + tracker.findById(id).getName());
+                Item item = tracker.findById(id);
+                String result = item == null ? "The Item has not contained in Array. Check ID for the Item." : item.getName();
+                System.out.println(result);
             } else if (select == 5) {
                 System.out.println("==== Find items by name ====");
                 System.out.print("Enter Item name: ");
                 String name = scanner.nextLine();
-                for (int i = 0; i < tracker.findByName(name).length; ++i) {
-                    System.out.println("Name: " + tracker.findByName(name)[i].getName() + ", ID: "
-                    + tracker.findByName(name)[i].getId());
+                Item[] items = tracker.findByName(name);
+                for (int i = 0; i < items.length; ++i) {
+                    System.out.println("Name: " + items[i].getName() + ", ID: "
+                    + items[i].getId());
                 }
             } else if (select == 6) {
                 System.out.println("Exit out of the program.");
