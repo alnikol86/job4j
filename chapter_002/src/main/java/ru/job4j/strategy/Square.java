@@ -7,8 +7,8 @@ public class Square implements Shape {
     public String draw() {
         StringJoiner image = new StringJoiner(System.lineSeparator());
         image.add("****");
-        image.add("****");
-        image.add("****");
+        image.add("*  *");
+        image.add("*  *");
         image.add("****");
         return image.toString();
     }

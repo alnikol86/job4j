@@ -24,10 +24,10 @@ public class PaintTest {
                 is(
                         new StringJoiner(System.lineSeparator())
                                 .add("****")
+                                .add("*  *")
+                                .add("*  *")
                                 .add("****")
-                                .add("****")
-                                .add("****")
-                                .add(System.lineSeparator())
+                                .add("")
                                 .toString()
                 )
         );
@@ -37,7 +37,18 @@ public class PaintTest {
 
     @Test
     public void whenTriangle() {
-        Triangle triangle = new Triangle();
-        Paint paint = new Paint();
+        PrintStream stdout = System.out;
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(out));
+        new Paint().draw(new Triangle());
+        assertThat(new String(out.toByteArray()),
+                is(
+                        new StringJoiner(System.lineSeparator())
+                                .add("  *")
+                                .add(" ***")
+                                .add("*****")
+                                .add("")
+                                .toString()
+                ));
     }
 }
