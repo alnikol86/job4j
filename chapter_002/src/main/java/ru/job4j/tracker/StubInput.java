@@ -17,4 +17,9 @@ public class StubInput implements Input {
     public int ascInt(String question) {
         return Integer.valueOf(ascStr(question));
     }
+
+    @Override
+    public int ascInt(String question, int max) {
+        return ascInt(question);
+    }
 }

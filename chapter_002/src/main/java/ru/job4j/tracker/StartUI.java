@@ -13,14 +13,14 @@ public class StartUI {
         boolean run = true;
         while (run) {
             this.showMenu(actions);
-            int select = input.ascInt("Select: ");
+            int select = input.ascInt("Select: ", actions.length);
             UserAction action = actions[select];
             run = action.execute(input, tracker);
         }
     }
 
     public static void main(String[] args) {
-        Input input = new ConsoleInput();
+        Input validate = new ValidateInput();
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction(),
@@ -31,6 +31,6 @@ public class StartUI {
                 new FindNameAction(),
                 new ExitAction()
         };
-        new StartUI().init(input, tracker, actions);
+        new StartUI().init(validate, tracker, actions);
     }
 }

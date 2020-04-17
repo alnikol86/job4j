@@ -15,4 +15,14 @@ public class ConsoleInput implements Input {
     public int ascInt(String question) {
         return Integer.valueOf(ascStr(question));
     }
+
+    @Override
+    public int ascInt(String question, int max) {
+        int select = ascInt(question);
+        if (select >= 0 && select < max) {
+            return select;
+        } else {
+            throw new IllegalStateException(String.format("Out of about %s > [0, %s]", select, max));
+        }
+    }
 }
