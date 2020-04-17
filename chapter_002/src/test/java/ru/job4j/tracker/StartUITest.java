@@ -16,11 +16,13 @@ public class StartUITest {
     // Создаем буфур для хранения вывода.
     ByteArrayOutputStream out = new ByteArrayOutputStream();
 
+    @Before
     public void loadOutput() {
         //Заменяем стандартный вывод на вывод в пямять для тестирования.
         System.setOut(new PrintStream(out));
     }
 
+    @After
     public void backOutput() {
         // возвращаем обратно стандартный вывод в консоль.
         System.setOut(stdout);
@@ -37,7 +39,6 @@ public class StartUITest {
     }
     @Test
     public void whenPrtMenu() {
-        loadOutput();
         StubInput input = new StubInput(
                 new String[] {"0"}
         );
@@ -48,11 +49,9 @@ public class StartUITest {
                 .add("0. null")
                 .toString();
         assertThat(new String(out.toByteArray()), is(expect));
-        backOutput();
     }
     @Test
     public void whenFindAll() {
-        loadOutput();
         Tracker tracker = new Tracker();
         Item item = new Item("fix bug");
         tracker.add(item);
@@ -62,11 +61,9 @@ public class StartUITest {
                 .add("Name: " + item.getName() + ", ID: " + item.getId())
                 .toString();
         assertThat(new String(out.toByteArray()), is(expect));
-        backOutput();
     }
     @Test
     public void whenFindName() {
-        loadOutput();
         Tracker tracker = new Tracker();
         Item item = new Item("Test");
         tracker.add(item);
@@ -78,41 +75,5 @@ public class StartUITest {
                 .add("Name: " + item.getName() + ", ID: " + item.getId())
                 .toString();
         assertThat(new String(out.toByteArray()), is(expect));
-        backOutput();
     }
-
-    /*
-    @Test
-    public void whenAddItem() {
-        String[] answers = {"Fix PC"};
-        Input input = new StubInput(answers);
-        Tracker tracker = new Tracker();
-        StartUI.createItem(input, tracker);
-        Item created = tracker.findAll()[0];
-        Item expected = new Item("Fix PC");
-        assertThat(created.getName(), is(expected.getName()));
-    }
-    @Test
-    public void whenEditItem() {
-        Tracker tracker = new Tracker();
-        Item item = new Item("New item");
-        tracker.add(item);
-        String[] answers = {item.getId(), "replaced item"};
-        StartUI.replaceItem(new StubInput(answers), tracker);
-        Item replaced = tracker.findById(item.getId());
-        assertThat(replaced.getName(), is("replaced item"));
-    }
-    @Test
-    public void whenDeleteItem() {
-        Tracker tracker = new Tracker();
-        Item item = new Item("New item");
-        tracker.add(item);
-        String itemID = item.getId();
-        String[] answers = {itemID};
-        StartUI.deleteItem(new StubInput(answers), tracker);
-        Item deleted = tracker.findById(itemID);
-        String expected = null;
-        assertThat(deleted, is(expected));
-    }
-     */
 }
