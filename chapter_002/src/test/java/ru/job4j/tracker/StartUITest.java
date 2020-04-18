@@ -76,4 +76,14 @@ public class StartUITest {
                 .toString();
         assertThat(new String(out.toByteArray()), is(expect));
     }
+    @Test
+    public void whenInvalidInout() {
+        ValidateInput input = new ValidateInput(
+                new StubInput(new String[] {"one", "1"})
+        );
+        input.ascInt("Enter");
+        assertThat(
+                out.toString(), is(String.format("Please enter validate data again.%n"))
+        );
+    }
 }
