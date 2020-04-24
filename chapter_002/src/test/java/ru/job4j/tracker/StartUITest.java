@@ -86,4 +86,14 @@ public class StartUITest {
                 out.toString(), is(String.format("Please enter validate data again.%n"))
         );
     }
+    @Test
+    public void whenInvalidKey() {
+        ValidateInput input = new ValidateInput(
+                new StubInput(new String[] {"10", "1"})
+        );
+        input.ascInt("Enter", 6);
+        assertThat(
+                out.toString(), is(String.format("Please select key from menu.%n"))
+        );
+    }
 }
