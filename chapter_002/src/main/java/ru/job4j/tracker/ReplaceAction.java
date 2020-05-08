@@ -3,11 +3,12 @@ package ru.job4j.tracker;
 public class ReplaceAction implements UserAction {
     @Override
     public String name() {
-        return "==== Edit item ====";
+        return "2. Edit item";
     }
 
     @Override
     public boolean execute(Input input, Tracker tracker) {
+        System.out.println("==== Edit item ====");
         String id = input.ascStr("Enter the item ID for replace: ");
         String name = input.ascStr("Enter a new item name: ");
         Item item = new Item(name);

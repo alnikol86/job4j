@@ -1,20 +1,22 @@
 package ru.job4j.tracker;
 
+import java.util.ArrayList;
+
 public class StartUI {
 
-    private void showMenu(UserAction[] actions) {
-        System.out.println("Menu.");
-        for (int index = 0; index < actions.length; ++index) {
-            System.out.println(index + ". " + actions[index].name());
+    private void showMenu(ArrayList<UserAction> actions) {
+        System.out.println("*** Menu ***");
+        for (UserAction value : actions) {
+            System.out.println(value.name());
         }
     }
 
-    public void init(Input input, Tracker tracker, UserAction[] actions) {
+    public void init(Input input, Tracker tracker, ArrayList<UserAction> arrayList) {
         boolean run = true;
         while (run) {
-            this.showMenu(actions);
-            int select = input.ascInt("Select: ", actions.length);
-            UserAction action = actions[select];
+            this.showMenu(arrayList);
+            int select = input.ascInt("Select: ", arrayList.size());
+            UserAction action = arrayList.get(select);
             run = action.execute(input, tracker);
         }
     }
@@ -23,15 +25,15 @@ public class StartUI {
         Input input = new ConsoleInput();
         Input validate = new ValidateInput(input);
         Tracker tracker = new Tracker();
-        UserAction[] actions = {
-                new CreateAction(),
-                new ShowAllAction(),
-                new ReplaceAction(),
-                new DeleteAction(),
-                new FindIDAction(),
-                new FindNameAction(),
-                new ExitAction()
-        };
+        ArrayList<UserAction> actions = new ArrayList<UserAction>();
+        actions.add(new CreateAction());
+        actions.add(new ShowAllAction());
+        actions.add(new ReplaceAction());
+        actions.add(new DeleteAction());
+        actions.add(new FindIDAction());
+        actions.add(new FindNameAction());
+        actions.add(new ExitAction());
+
         new StartUI().init(validate, tracker, actions);
     }
 }

@@ -1,4 +1,3 @@
-
 package ru.job4j.tracker;
 
 import org.junit.After;
@@ -8,12 +7,14 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
+
+import java.util.ArrayList;
 import java.util.StringJoiner;
 
 public class StartUITest {
     // получаем ссылку на стандартный вывод в консоль.
     PrintStream stdout = System.out;
-    // Создаем буфур для хранения вывода.
+    // Создаем буфер для хранения вывода.
     ByteArrayOutputStream out = new ByteArrayOutputStream();
 
     @Before
@@ -34,7 +35,7 @@ public class StartUITest {
                 new String[] {"0"}
         );
         StubAction action = new StubAction();
-        new StartUI().init(input, new Tracker(), new UserAction[] {action});
+        new StartUI().init(input, new Tracker(), new ArrayList<UserAction>());
         assertThat(action.isCall(), is(true));
     }
     @Test
@@ -43,7 +44,7 @@ public class StartUITest {
                 new String[] {"0"}
         );
         StubAction action = new StubAction();
-        new StartUI().init(input, new Tracker(), new UserAction[] {action});
+        new StartUI().init(input, new Tracker(), new ArrayList<UserAction>());
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add("Menu.")
                 .add("0. null")
