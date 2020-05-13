@@ -1,6 +1,7 @@
 package ru.job4j.tracker;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class FindNameAction implements UserAction {
     @Override
@@ -12,9 +13,9 @@ public class FindNameAction implements UserAction {
     public boolean execute(Input input, Tracker tracker) {
         System.out.println("==== Find items by name ====");
         String name = input.ascStr("Enter Item name: ");
-        ArrayList items = tracker.findByName(name);
+        List<Item> items = tracker.findByName(name);
         for (Item value : items) {
-            System.out.println("Name: " + item.getName() + ", ID: " + item.getId());
+            System.out.println("Name: " + value.getName() + ", ID: " + value.getId());
         }
         return true;
     }
