@@ -27,9 +27,13 @@ public class TrackerTest {
         tracker.add(item1);
         Item item3 = new Item("test3");
         tracker.add(item3);
-        String expected = "Name: " + item1.getName() + ", ID: " + item1.getId() + System.lineSeparator()
-                + "Name: " + item3.getName() + ", ID: " + item3.getId();
-        assertThat(tracker.findAll(), is(expected));
+        String expected = /*"Name: " + item1.getName() + ", ID: " + item1.getId() + System.lineSeparator()
+                + */"Name: " + item3.getName() + ", ID: " + item3.getId();
+        String rsl = null;
+        for (Item value : tracker.findAll()) {
+            rsl = "Name: " + value.getName() + ", ID: " + value.getId();
+        }
+        assertThat(rsl, is(expected));
     }
 
     @Test
