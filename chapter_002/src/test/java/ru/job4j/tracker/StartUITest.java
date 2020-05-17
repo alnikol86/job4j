@@ -9,6 +9,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.StringJoiner;
 
 public class StartUITest {
@@ -35,7 +36,9 @@ public class StartUITest {
                 new String[] {"0"}
         );
         StubAction action = new StubAction();
-        new StartUI().init(input, new Tracker(), new ArrayList<UserAction>());
+        List<UserAction> actions = new ArrayList<UserAction>();
+        actions.add(action);
+        new StartUI().init(input, new Tracker(), actions);
         assertThat(action.isCall(), is(true));
     }
     @Test
@@ -44,10 +47,12 @@ public class StartUITest {
                 new String[] {"0"}
         );
         StubAction action = new StubAction();
-        new StartUI().init(input, new Tracker(), new ArrayList<UserAction>());
+        List<UserAction> actions = new ArrayList<UserAction>();
+        actions.add(action);
+        new StartUI().init(input, new Tracker(), actions);
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
-                .add("Menu.")
-                .add("0. null")
+                .add("*** Menu ***")
+                .add("null")
                 .toString();
         assertThat(new String(out.toByteArray()), is(expect));
     }
@@ -59,6 +64,7 @@ public class StartUITest {
         ShowAllAction act = new ShowAllAction();
         act.execute(new StubInput(new String[] {}), tracker);
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
+                .add("==== Tracker contains ====")
                 .add("Name: " + item.getName() + ", ID: " + item.getId())
                 .toString();
         assertThat(new String(out.toByteArray()), is(expect));
@@ -73,6 +79,7 @@ public class StartUITest {
         String[] answers = {itemName};
         act.execute(new StubInput(answers), tracker);
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
+                .add("==== Find items by name ====")
                 .add("Name: " + item.getName() + ", ID: " + item.getId())
                 .toString();
         assertThat(new String(out.toByteArray()), is(expect));
