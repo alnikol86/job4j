@@ -2,9 +2,7 @@ package ru.job4j.tracker;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
@@ -67,5 +65,19 @@ public class TrackerTest {
         String id = bug.getId();
         tracker.delete(id);
         assertThat(tracker.findById(id), is(nullValue()));
+    }
+    @Test
+    public void checkSort() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("A");
+        tracker.add(item);
+        Item item1 = new Item("V");
+        tracker.add(item1);
+        Item item2 = new Item("L");
+        tracker.add(item2);
+        Item item3 = new Item("T");
+        tracker.add(item3);
+        Item item4 = new Item("B");
+        List<Item> result = Collections.sort(i, new SortItemByName())
     }
 }
