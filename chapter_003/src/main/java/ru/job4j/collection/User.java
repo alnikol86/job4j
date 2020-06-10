@@ -6,6 +6,14 @@ public class User implements Comparable<User> {
     private String name;
     private int age;
 
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
     public User(String name, int age) {
         this.name = name;
         this.age = age;
@@ -13,9 +21,9 @@ public class User implements Comparable<User> {
 
     @Override
     public int compareTo(User obj) {
-        int rsl = name.compareTo(obj.name);
+        int rsl = name.compareTo(obj.getName());
         if (rsl == 0) {
-            rsl = age.compareTo(obj.age);
+            rsl = Integer.compare(age, obj.getAge());
         }
         return rsl;
     }
@@ -32,4 +40,6 @@ public class User implements Comparable<User> {
     public int hashCode() {
         return Objects.hash(name, age);
     }
+
+
 }
