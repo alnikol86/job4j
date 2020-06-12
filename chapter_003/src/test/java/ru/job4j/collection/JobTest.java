@@ -17,6 +17,7 @@ public class JobTest {
         );
         assertThat(rsl, lessThan(0));
     }
+
     @Test
     public void whenComparatorPriority() {
         Comparator<Job> cmpPriority = new JobDeskByPriority();
@@ -26,6 +27,7 @@ public class JobTest {
         );
         assertThat(rsl, greaterThan(0));
     }
+
     @Test
     public void whenComparatorRName() {
         Comparator<Job> cmpRName = new JobDeskByNameReverse();
@@ -35,6 +37,7 @@ public class JobTest {
         );
         assertThat(rsl, greaterThan(0));
     }
+
     @Test
     public void whenComparatorRPriority() {
         Comparator<Job> cmpRPriority = new JobDeskByPriorityReverse();
@@ -50,35 +53,39 @@ public class JobTest {
         Comparator<Job> cmpNamePriority = new JobDeskByName().thenComparing(new JobDeskByPriority());
         int rsl = cmpNamePriority.compare(
                 new Job("Impl task", 0),
-                new Job("Fix bug", 1)
+                new Job("Impl task", 1)
         );
-        assertThat(rsl, lessThan(0));
+        assertThat(rsl, greaterThan(0));
     }
+
     @Test
-    public void whenComparatorByPriorityAndName() {
+    public void whenComparatorByPriorityEqualAndName() {
         Comparator<Job> cmpPriorityName = new JobDeskByPriority().thenComparing(new JobDeskByName());
         int rsl = cmpPriorityName.compare(
-                new Job("Impl task", 0),
-                new Job("Fix bug", 1)
-        );
-        assertThat(rsl, greaterThan(0));
-    }
-    @Test
-    public void whenComparatorByRevNameAndRevPriority() {
-        Comparator<Job> cmpRNameRPriority = new JobDeskByNameReverse().thenComparing(new JobDeskByPriorityReverse());
-        int rsl = cmpRNameRPriority.compare(
-                new Job("Impl task", 0),
-                new Job("Fix bug", 1)
-        );
-        assertThat(rsl, greaterThan(0));
-    }
-    @Test
-    public void whenComparatorByRPriorityAndRName() {
-        Comparator<Job> cmpRPriorityRName = new JobDeskByPriorityReverse().thenComparing(new JobDeskByNameReverse());
-        int rsl = cmpRPriorityRName.compare(
-                new Job("Impl task", 0),
+                new Job("Impl task", 1),
                 new Job("Fix bug", 1)
         );
         assertThat(rsl, lessThan(0));
     }
+
+    @Test
+    public void whenComparatorByRevNameEqualAndRevPriority() {
+        Comparator<Job> cmpRNameRPriority = new JobDeskByNameReverse().thenComparing(new JobDeskByPriorityReverse());
+        int rsl = cmpRNameRPriority.compare(
+                new Job("Fix bug", 0),
+                new Job("Fix bug", 1)
+        );
+        assertThat(rsl, lessThan(0));
+    }
+
+    @Test
+    public void whenComparatorByRPriorityEqualAndRName() {
+        Comparator<Job> cmpRPriorityRName = new JobDeskByPriorityReverse().thenComparing(new JobDeskByNameReverse());
+        int rsl = cmpRPriorityRName.compare(
+                new Job("Impl task", 1),
+                new Job("Fix bug", 1)
+        );
+        assertThat(rsl, greaterThan(0));
+    }
+
 }
