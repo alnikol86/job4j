@@ -1,9 +1,3 @@
 # job4j
-I started the course on January 2, 2020.
-I will finish it in July 2020.
-
-"Объединение зафиксированх изменений"
-
-In the course I worked with branches in Git
-В курсе производилась работа с веткамы git.
-New branch created by IDEA
+[![Build Status](https://travis-ci.org/alnikol86/job4j.svg?branch=master)](https://travis-ci.org/alnikol86/job4j)
+[![codecov](https://codecov.io/gh/alnikol86/job4j/branch/master/graph/badge.svg)](https://codecov.io/gh/alnikol86/job4j)
