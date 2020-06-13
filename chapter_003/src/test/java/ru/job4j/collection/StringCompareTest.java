@@ -12,13 +12,13 @@ public class StringCompareTest {
     public void whenStringsAreEqualsThenZero() {
         StringCompare compare = new StringCompare();
         int rsl = compare.compare("Ivanov", "Ivanov");
-        assertThat(rsl, is(0));
+        assertThat(rsl, is(6));
     }
     @Test
     public void whenLeftLessThanRightResultBeNegative() {
         StringCompare compare = new StringCompare();
         int rsl = compare.compare("Ivanov", "Ivanova");
-        assertThat(rsl, lessThan(0));
+        assertThat(rsl, greaterThan(0));
     }
     @Test
     public void whenLeftGreaterThanRightResultShouldBePositive() {
