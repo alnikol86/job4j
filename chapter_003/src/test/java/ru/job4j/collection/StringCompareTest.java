@@ -12,7 +12,7 @@ public class StringCompareTest {
     public void whenStringsAreEqualsThenZero() {
         StringCompare compare = new StringCompare();
         int rsl = compare.compare("Ivanov", "Ivanov");
-        assertThat(rsl, is(6));
+        assertThat(rsl, is(0));
     }
     @Test
     public void whenLeftLessThanRightResultBeNegative() {
@@ -39,9 +39,9 @@ public class StringCompareTest {
         assertThat(rsl, lessThan(0));
     }
     @Test
-    public void whenLeftGreaterThenRightShouldBePositive() {
+    public void whenLeftGreaterThenRightShouldBeNegative() {
         StringCompare compare = new StringCompare();
         int rsl = compare.compare("Petrova", "Petrov");
-        assertThat(rsl, greaterThan(0));
+        assertThat(rsl, lessThan(0));
     }
 }

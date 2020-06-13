@@ -13,6 +13,6 @@ public class StringCompare implements Comparator<String> {
                 break;
             }
         }
-        return rsl == 0 ? minString : rsl;
+        return rsl == 0 ? Integer.compare(right.length(), left.length()) : rsl;
     }
 }
