@@ -66,18 +66,4 @@ public class TrackerTest {
         tracker.delete(id);
         assertThat(tracker.findById(id), is(nullValue()));
     }
-    @Test
-    public void checkSort() {
-        Tracker tracker = new Tracker();
-        Item item = new Item("A");
-        tracker.add(item);
-        Item item1 = new Item("V");
-        tracker.add(item1);
-        Item item2 = new Item("L");
-        tracker.add(item2);
-        Item item3 = new Item("T");
-        tracker.add(item3);
-        Item item4 = new Item("B");
-        List<Item> result = Collections.sort(i, new SortItemByName())
-    }
 }
