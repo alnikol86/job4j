@@ -10,8 +10,8 @@ public class ScopeInside {
             int num = i;
             total = add(
                     () -> {
-                        int totalIn = +num;
-                        return totalIn;
+                        int totalIn = 0;
+                        return totalIn + num;
                     }
             );
         }
