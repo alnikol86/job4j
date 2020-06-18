@@ -8,10 +8,10 @@ public class ScopeInside {
         int total = 0;
         for (int i = 0; i < number.length; ++i) {
             int num = i;
-            total = add(
-                    () -> {
-                        int totalIn = 0;
-                        return totalIn + num;
+            total = add(() -> {
+                int totalIn = 0;
+                totalIn = totalIn + number[num];
+                return totalIn;
                     }
             );
         }
