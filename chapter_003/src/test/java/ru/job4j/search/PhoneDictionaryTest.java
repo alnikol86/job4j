@@ -16,4 +16,13 @@ public class PhoneDictionaryTest {
         ArrayList<Person> persons = phones.find("Petr");
         assertThat(persons.get(0).getSurname(), is("Arsentev"));
     }
+    @Test
+    public void whenFindByNameSecond() {
+        PhoneDictionary phones = new PhoneDictionary();
+        phones.add(
+                new Person("Alexander", "Nikolaev", "4562158", "Nizhniy Novgorod")
+        );
+        ArrayList<Person> persons = phones.find1("Alexander");
+        assertThat(persons.get(0).getSurname(), is("Nikolaev"));
+    }
 }
