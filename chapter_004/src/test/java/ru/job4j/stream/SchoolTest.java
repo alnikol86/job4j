@@ -17,11 +17,8 @@ public class SchoolTest {
                 new Student(70, "Petrov"),
                 new Student(0, "Sidorov")
         );
-        Predicate<Student> groupA = student -> 70 <= student.getScore() || student.getScore() <= 100;
+        Predicate<Student> groupA = student -> 70 <= student.getScore() && student.getScore() <= 100;
         List<Student> group = school.collect(students, groupA);
-        for (Student res : group) {
-            System.out.println(res.getSurname());
-        }
         assertThat(group.get(0).getSurname(), is("Petrov"));
     }
     @Test
@@ -32,7 +29,7 @@ public class SchoolTest {
                     new Student(70, "Petrov"),
                     new Student(0, "Sidorov")
             );
-            Predicate<Student> groupB = student -> 50 <= student.getScore() || student.getScore() < 70;
+            Predicate<Student> groupB = student -> 50 <= student.getScore() && student.getScore() < 70;
             List<Student> group = school.collect(students, groupB);
             assertThat(group.get(0).getSurname(), is("Ivanov"));
         }
@@ -44,7 +41,7 @@ public class SchoolTest {
                 new Student(70, "Petrov"),
                 new Student(0, "Sidorov")
         );
-        Predicate<Student> groupC = student -> 0 <= student.getScore() || student.getScore() < 50;
+        Predicate<Student> groupC = student -> 0 <= student.getScore() && student.getScore() < 50;
         List<Student> group = school.collect(students, groupC);
         assertThat(group.get(0).getSurname(), is("Sidorov"));
     }
