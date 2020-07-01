@@ -13,8 +13,8 @@ public class Profiles {
 
     List<Address> collect(List<Profile> profiles) {
         Profiles profiles1 = new Profiles();
-        List<Profile> profilesSort = profiles1.sorted(profiles);
-        List<Address> addresses = profilesSort.stream()
+        List<Address> addresses = profiles1.sorted(profiles)
+                .stream()
                 .map(Profile::getAddress)
                 .distinct()
                 .collect(Collectors.toList());
