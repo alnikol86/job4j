@@ -31,7 +31,7 @@ public class ProfilesTest {
                 new Profile(new Address("Moscow", "Gorkogo", 191, 78)),
                 new Profile(new Address("Nizhny Novgorod", "Gorkogo", 190, 77))
         );
-        List<Profile> profiles1 = profiles.sorted(users);
-        assertThat(profiles1.get(1).getAddress().getCity(), is("Nizhny Novgorod"));
+        List<Address> addresses = profiles.collect(users);
+        assertThat(addresses.get(1).getCity(), is("Nizhny Novgorod"));
     }
 }
