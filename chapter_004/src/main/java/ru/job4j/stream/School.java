@@ -12,7 +12,8 @@ public class School {
         ).collect(
                 Collectors.toMap(
                         Student::getSurname,
-                        //Student
+                        student -> student,
+                        (existing, replacement) -> existing
                 ));
         return groups;
     }
