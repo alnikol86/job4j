@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Stream;
 
 public class BankService {
     private Map<User, List<Account>> users = new HashMap<>();
@@ -20,6 +21,10 @@ public class BankService {
                 accounts.add(account);
             }
         }
+    }
+
+    public User findByPassportStream(String passport) {
+        users.
     }
 
     public User findByPassport(String passport) {
