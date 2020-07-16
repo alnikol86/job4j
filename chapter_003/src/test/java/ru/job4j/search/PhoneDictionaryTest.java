@@ -13,7 +13,7 @@ public class PhoneDictionaryTest {
         phones.add(
                 new Person("Petr", "Arsentev", "534872", "Bryansk")
         );
-        ArrayList<Person> persons = phones.find("Petr");
+        var persons = phones.find("Petr");
         assertThat(persons.get(0).getSurname(), is("Arsentev"));
     }
     @Test
@@ -22,7 +22,7 @@ public class PhoneDictionaryTest {
         phones.add(
                 new Person("Alexander", "Nikolaev", "4562158", "Nizhniy Novgorod")
         );
-        ArrayList<Person> persons = phones.find1("Alexander");
+        var persons = phones.find1("Alexander");
         assertThat(persons.get(0).getSurname(), is("Nikolaev"));
     }
 }
