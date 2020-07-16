@@ -23,9 +23,9 @@ public class BankService {
         }
     }
 
-    public User findByPassportStream(String passport) {
-        users.
-    }
+//    public User findByPassportStream(String passport) {
+//        return users
+//    }
 
     public User findByPassport(String passport) {
         User rsl = null;
