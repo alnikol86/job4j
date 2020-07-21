@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class BankService {
@@ -23,9 +24,10 @@ public class BankService {
         }
     }
 
-//    public User findByPassportStream(String passport) {
-//        return users
-//    }
+    public User findByPassportStream(String passport) {
+        users.keySet().stream().filter(user -> user.getPassport().contains(passport)).equals(passport);
+        return null;
+    }
 
     public User findByPassport(String passport) {
         User rsl = null;
@@ -36,6 +38,12 @@ public class BankService {
             }
         }
         return rsl;
+    }
+
+    public Account findByRequisiteByStream(String passport, String requisite) {
+        User user = findByPassportStream(passport);
+        users.get(user).stream().filter(account -> account.getRequisite().contains(requisite)).equals(requisite);
+        return null;
     }
 
     public Account findByRequisite(String passport, String requisite) {
