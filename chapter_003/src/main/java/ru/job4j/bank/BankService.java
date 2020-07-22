@@ -20,8 +20,10 @@ public class BankService {
     }
 
     public User findByPassportStream(String passport) {
-        users.keySet().stream().filter(user -> user.getPassport().contains(passport)).equals(passport);
-        return null;
+       return users.keySet().stream()
+               .filter(user -> user.getPassport().equals(passport))
+               .findFirst()
+               .orElse(null);
     }
 
     public Optional<User> findByPassport(String passport) {
@@ -37,8 +39,10 @@ public class BankService {
 
     public Account findByRequisiteByStream(String passport, String requisite) {
         User user = findByPassportStream(passport);
-        users.get(user).stream().filter(account -> account.getRequisite().contains(requisite)).equals(requisite);
-        return null;
+        return users.get(user).stream()
+                .filter(account -> account.getRequisite().equals(requisite))
+                .findFirst()
+                .orElse(null);
     }
 
     public Optional<Account> findByRequisite(String passport, String requisite) {
