@@ -37,12 +37,16 @@ public class BankService {
         return rsl;
     }
 
-    public Account findByRequisiteByStream(String passport, String requisite) {
-        User user = findByPassportStream(passport);
-        return users.get(user).stream()
-                .filter(account -> account.getRequisite().equals(requisite))
-                .findFirst()
-                .orElse(null);
+    public Optional<Account> findByRequisiteByStream(String passport, String requisite) {
+        Optional<User> user = Optional.ofNullable(findByPassportStream(passport));
+        Optional<Account> value = Optional.empty();
+        if (user.isPresent()) {
+            value = Optional.ofNullable(users.get(user).stream()
+                    .filter(account -> account.getRequisite().equals(requisite))
+                    .findFirst()
+                    .orElse(null));
+        }
+        return value;
     }
 
     public Optional<Account> findByRequisite(String passport, String requisite) {
